@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./index.css";
 import Card from "../components/nomineeCard/NomineeCard";
 import { getCategories, updateVotes } from "../../../util/https";
@@ -36,30 +36,25 @@ const LandingPage = () => {
       setLoading(false);
     }
   };
-
+  const handleNomineeSelect = useCallback(
+    (categoryId: string, nominee: Nominee) => {
+      try {
+        setCategoriesData((prevCategories) =>
+          prevCategories.map((category) =>
+            category.id === categoryId
+              ? { ...category, selectedNominee: nominee }
+              : category
+          )
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    []
+  );
   useEffect(() => {
     getAllData();
   }, []);
-
-  if (loading) {
-    return <Spinner />;
-  }
-  if (error !== "") {
-    // return <Error />;
-  }
-  const handleNomineeSelect = (categoryId: string, nominee: Nominee) => {
-    try {
-      setCategoriesData((prevCategories) =>
-        prevCategories.map((category) =>
-          category.id === categoryId
-            ? { ...category, selectedNominee: nominee }
-            : category
-        )
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -102,6 +97,12 @@ const LandingPage = () => {
       console.error(error);
     }
   };
+  if (loading) {
+    return <Spinner />;
+  }
+  if (error !== "") {
+    // return <Error />;
+  }
 
   return (
     <div className="container">
@@ -121,7 +122,7 @@ const LandingPage = () => {
                 .slice(indexOfFirstItem, indexOfLastItem)
                 .map((nominee, index) => (
                   <Card
-                    key={index}
+                    key={nominee.id}
                     name={nominee.name}
                     description={nominee.description}
                     votes={nominee.votes}
