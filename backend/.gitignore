@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+
+# Logs
+logs/
+*.log
+
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# dotenv environment variables file
+.env
+
+# Visual Studio Code
+.vscode/

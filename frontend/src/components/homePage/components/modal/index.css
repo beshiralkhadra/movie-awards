@@ -1,0 +1,51 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalContainer {
+  animation: fadeInFromBottom 0.5s;
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.suceess-modal_content {
+  animation: fadeIn 1s;
+  flex: 50%;
+  text-align: center;
+}
+.suceess-modal_content p {
+  font-size: 1.3rem;
+}
+
+.success-modal_btn {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: #c79f27;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}

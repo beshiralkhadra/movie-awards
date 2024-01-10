@@ -1,0 +1,58 @@
+.movie-card_img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-info {
+  padding: 1em;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #666;
+}
+
+.nominee-card_footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nominee-card_footer-section button {
+  padding: 0.8em 1.8em;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #c79f27;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #c79f27;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nominee-card_footer-section button:hover {
+  background-color: #fff;
+  color: #c79f27;
+}
+
+@media only screen and (max-width: 768px) {
+  .nominee-card_footer-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nominee-card_footer-section button {
+    margin-top: 1em;
+    align-self: center;
+  }
+}

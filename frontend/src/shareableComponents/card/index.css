@@ -1,0 +1,15 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 1200px) {
+    width: calc(25% - 32px);
+  }
+
+  .card .selected {
+    border: 2px solid #c79f27;
+  }
+}
