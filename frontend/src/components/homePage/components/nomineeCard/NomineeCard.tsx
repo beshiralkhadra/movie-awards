@@ -20,17 +20,10 @@ const NomineeCard: React.FC<NomineeCardTypes> = React.memo(
     isSelected,
   }: NomineeCardTypes) => {
     const [isExpanded, setIsExpanded] = React.useState(false);
-    React.useEffect(() => {
-      console.log("onSelect or isSelected changed");
-    }, [onSelect, isSelected]);
 
     const toggleExpanded = () => {
       setIsExpanded(!isExpanded);
     };
-
-    // const handleClick = () => {
-    //   onSelect();
-    // };
 
     return (
       <Card isSelected={isSelected}>
@@ -57,6 +50,9 @@ const NomineeCard: React.FC<NomineeCardTypes> = React.memo(
         </div>
       </Card>
     );
+  },
+  (prevProps, nextProps) => {
+    return prevProps.isSelected === nextProps.isSelected;
   }
 );
 
